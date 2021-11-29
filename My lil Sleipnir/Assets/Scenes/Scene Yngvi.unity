@@ -156,6 +156,7 @@ MonoBehaviour:
   floors:
   - {fileID: 1875115054}
   floor: {fileID: 6733182802296888583, guid: a3d51f9b153a9f6469e7298821ae2e7c, type: 3}
+  floor_space_between: 20
 --- !u!4 &872550159
 Transform:
   m_ObjectHideFlags: 0

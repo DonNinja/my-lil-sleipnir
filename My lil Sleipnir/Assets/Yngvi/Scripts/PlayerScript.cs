@@ -6,6 +6,7 @@ public class PlayerScript : MonoBehaviour
 {
     public float jump_height;
     public Rigidbody2D rb;
+    public bool dd_enabled = false;
 
     bool grounded;
     bool second_jump;
@@ -30,6 +31,6 @@ public class PlayerScript : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         grounded = true;
-        second_jump = true;
+        second_jump = dd_enabled ? true : false;
     }
 }

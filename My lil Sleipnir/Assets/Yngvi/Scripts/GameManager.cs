@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
     public Camera main_camera;
     public List<SpriteRenderer> floors = new List<SpriteRenderer>();
     public GameObject floor;
+    public float floor_space_between;
 
     float floor_width;
     SpriteRenderer rm_fl;
@@ -38,7 +39,7 @@ public class GameManager : MonoBehaviour
                 rm_fl = fl;
             if (i == floors.Count && fl.bounds.center.x < main_camera.pixelRect.x)
             {
-                Vector3 fl_pos = new Vector3(right_side, -4, 0);
+                Vector3 fl_pos = new Vector3(right_side + floor_space_between, -4, 0);
                 // Create new floor and get the spriterenderer of that
                 new_fl = Instantiate(floor, fl_pos, Quaternion.identity).GetComponent<SpriteRenderer>();
             }
