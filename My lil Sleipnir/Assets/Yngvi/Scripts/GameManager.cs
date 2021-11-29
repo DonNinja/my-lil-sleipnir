@@ -12,8 +12,6 @@ public class GameManager : MonoBehaviour
     SpriteRenderer rm_fl;
     SpriteRenderer new_fl;
     float right_side;
-    float left_side;
-    bool create_new;
 
     // Start is called before the first frame update
     void Start()
@@ -35,16 +33,14 @@ public class GameManager : MonoBehaviour
             i++;
 
             right_side = fl.bounds.center.x + floor_width;
-            left_side = fl.bounds.center.x - floor_width;
 
             if (right_side < main_camera.pixelRect.xMin)
                 rm_fl = fl;
-            if (i == floors.Count && left_side < main_camera.pixelRect.x)
+            if (i == floors.Count && fl.bounds.center.x < main_camera.pixelRect.x)
             {
-                Debug.Log(fl.bounds.center.x + " | " + main_camera.pixelRect.x);
                 Vector3 fl_pos = new Vector3(right_side, -4, 0);
+                // Create new floor and get the spriterenderer of that
                 new_fl = Instantiate(floor, fl_pos, Quaternion.identity).GetComponent<SpriteRenderer>();
-                new_fl.color = Random.ColorHSV();
             }
         }
 
