@@ -4,19 +4,12 @@ using UnityEngine;
 
 public class FloorScript : MonoBehaviour
 {
-    public float player_speed;
-    public float max_speed;
-    public float interval;
-    public Rigidbody2D floor;
+    //public float max_speed;
+    public GameObject floor;
 
-    // Start is called before the first frame update
-    void Start()
+    void FixedUpdate()
     {
-        floor.velocity = new Vector2(-player_speed, 0);
-    }
-
-    void Update()
-    {
-        
+        floor.transform.position = new Vector2(floor.transform.position.x - (PlayerScript.instance.player_speed * Time.deltaTime), floor.transform.position.y);
+        // TODO: Potentially add an incremental speed gain
     }
 }
