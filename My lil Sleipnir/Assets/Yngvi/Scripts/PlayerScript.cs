@@ -9,7 +9,8 @@ public class PlayerScript : MonoBehaviour
     public float player_speed;
     public float jump_height;
     public Rigidbody2D rb;
-    public bool dj_enabled = false;
+    public bool dj_enabled;
+    public float player_weight;
 
     bool grounded = false;
     bool second_jump;
@@ -22,11 +23,12 @@ public class PlayerScript : MonoBehaviour
     void Update() {
         if (Input.GetKeyDown(KeyCode.UpArrow) && (grounded || second_jump)) {
             // Force still movement so the 2nd jump will be constant
+            rb.gravityScale = 1f;
             rb.velocity = new Vector2(0, 0);
             rb.AddForce(new Vector2(0, jump_height));
 
             // Set second jump
-            second_jump = dj_enabled;
+            second_jump = grounded;
 
             grounded = false;
         }
@@ -49,6 +51,7 @@ public class PlayerScript : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision) {
         grounded = true;
         second_jump = dj_enabled;
+        rb.gravityScale = player_weight;
     }
 
     private void OnCollisionExit2D(Collision2D collision) {

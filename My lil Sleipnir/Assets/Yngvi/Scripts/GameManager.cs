@@ -27,12 +27,10 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start() {
         floor_width = floors[0].bounds.size.x / 2;
-
     }
 
     // Update is called once per frame
     void Update() {
-        float curr_time = Time.time;
         rm_fl_sr = null;
         new_fl_sr = null;
         int i = 0;

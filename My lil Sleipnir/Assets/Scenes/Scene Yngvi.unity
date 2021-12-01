@@ -331,6 +331,8 @@ MonoBehaviour:
   new_floor: {fileID: 665080613092883362, guid: 4f469c9098d2f2541bf7512f90baa2a4, type: 3}
   floor_interval: 10
   coin_counter: 0
+  game_started: 0
+  start_time: 5
 --- !u!4 &872550159
 Transform:
   m_ObjectHideFlags: 0
@@ -443,7 +445,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 20
+  m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
@@ -494,6 +496,7 @@ MonoBehaviour:
   jump_height: 400
   rb: {fileID: 1177347555}
   dj_enabled: 1
+  player_weight: 5
 --- !u!1 &1206894908
 GameObject:
   m_ObjectHideFlags: 0
