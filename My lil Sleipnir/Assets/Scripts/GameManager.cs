@@ -6,6 +6,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
     public int currency;
+    public int foodAmount;
 
     void Awake()
     {

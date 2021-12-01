@@ -21,14 +21,14 @@ public class FeedPet : MonoBehaviour
     }
     public void Feed()
     {
-        if (GameManager.instance.currency >= 4)
+        if (GameManager.instance.foodAmount >= 1)
         {
             foodslider.IncrementProgress(0.1f);
-            GameManager.instance.currency -= 4;
+            GameManager.instance.foodAmount -= 1;
         }
         else
         {
-            Debug.Log("Not enough coins to feed Sleipnir");
+            Debug.Log("Not enough food to feed Sleipnir");
             // Add func that highlights your coins showing the player you don't have enough
         }
     }
