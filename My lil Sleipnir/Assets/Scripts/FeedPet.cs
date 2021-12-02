@@ -23,7 +23,7 @@ public class FeedPet : MonoBehaviour
     {
         if (GameManager.instance.foodAmount >= 1)
         {
-            foodslider.IncrementProgress(0.1f);
+            foodslider.IncrementProgress(1f);
             GameManager.instance.foodAmount -= 1;
         }
         else
