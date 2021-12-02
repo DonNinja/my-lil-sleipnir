@@ -16,9 +16,9 @@ public class HappinessBar : MonoBehaviour
     private void Awake()
     {
         slider = gameObject.GetComponent<Slider>();
-        foodBar = GameObject.Find("FoodBar").GetComponent<Slider>();
-        cleanBar = GameObject.Find("CleanBar").GetComponent<Slider>();
-        affectionBar = GameObject.Find("AffectionBar").GetComponent<Slider>();
+        foodBar = GameObject.Find("BarFood").GetComponent<Slider>();
+        cleanBar = GameObject.Find("BarClean").GetComponent<Slider>();
+        affectionBar = GameObject.Find("BarAffection").GetComponent<Slider>();
     }
     void Start()
     {

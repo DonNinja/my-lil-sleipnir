@@ -14,6 +14,6 @@ public class FoodCounter : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        foodLabel.text = "Food: " + GameManager.instance.foodAmount.ToString();
+        foodLabel.text = GameManager.instance.foodAmount.ToString();
     }
 }

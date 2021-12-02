@@ -14,6 +14,6 @@ public class CurrencyCounter : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        currencyLabel.text = "Coins: " + GameManager.instance.currency.ToString();
+        currencyLabel.text = GameManager.instance.currency.ToString();
     }
 }

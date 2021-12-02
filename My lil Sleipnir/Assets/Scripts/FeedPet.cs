@@ -12,7 +12,7 @@ public class FeedPet : MonoBehaviour
     private void Awake()
     {
         slider = gameObject.GetComponent<Slider>();
-        foodslider = GameObject.Find("FoodBar").GetComponent<BarFill>();
+        foodslider = GameObject.Find("BarFood").GetComponent<BarFill>();
 
     }
     void Start()
@@ -21,10 +21,18 @@ public class FeedPet : MonoBehaviour
     }
     public void Feed()
     {
+        Debug.Log(slider.value);
         if (GameManager.instance.foodAmount >= 1)
         {
-            foodslider.IncrementProgress(1f);
-            GameManager.instance.foodAmount -= 1;
+            if (slider.value < 10)
+            {
+                foodslider.IncrementProgress(1f);
+                GameManager.instance.foodAmount -= 1;
+            }
+            else
+            {
+                Debug.Log("Already maxed out the bar");
+            }
         }
         else
         {
