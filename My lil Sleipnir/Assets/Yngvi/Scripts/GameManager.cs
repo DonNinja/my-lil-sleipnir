@@ -8,9 +8,10 @@ public class GameManager : MonoBehaviour
     public Camera main_camera;
     public List<SpriteRenderer> floors = new List<SpriteRenderer>();
     public GameObject new_floor;
-    public float floor_interval;
-    public int coin_counter = 0;
     public bool game_started;
+    public bool generate_level;
+    public int coin_counter = 0;
+    public float floor_interval;
     public float start_time;
 
     SpriteRenderer rm_fl_sr;
@@ -38,36 +39,39 @@ public class GameManager : MonoBehaviour
         if (Time.time - init_time > start_time)
             game_started = true;
 
-        // Get the right side of the camera
-        float camera_right = main_camera.ScreenToWorldPoint(new Vector3(main_camera.pixelRect.xMax, 0, 0)).x + main_camera.transform.position.x;
+        if (generate_level) {
 
-        // TODO: Make this dynamic so we don't require the player to stay in x coords 0 (This isn't ultimately required, but would be nice)
-        float camera_left = main_camera.ScreenToWorldPoint(new Vector3(main_camera.pixelRect.xMax - main_camera.pixelRect.xMax, 0, 0)).x + main_camera.transform.position.x;
+            // Get the right side of the camera
+            float camera_right = main_camera.ScreenToWorldPoint(new Vector3(main_camera.pixelRect.xMax, 0, 0)).x + main_camera.transform.position.x;
 
-        foreach (SpriteRenderer fl in floors) {
-            i++;
+            // TODO: Make this dynamic so we don't require the player to stay in x coords 0 (This isn't ultimately required, but would be nice)
+            float camera_left = main_camera.ScreenToWorldPoint(new Vector3(main_camera.pixelRect.xMax - main_camera.pixelRect.xMax, 0, 0)).x + main_camera.transform.position.x;
 
-            right_side = fl.bounds.center.x + floor_width;
+            foreach (SpriteRenderer fl in floors) {
+                i++;
 
-            if (right_side < camera_left)
-                rm_fl_sr = fl;
+                right_side = fl.bounds.center.x + floor_width;
 
-            if (i == floors.Count && right_side < camera_right) {
-                Vector3 floor_pos = new Vector3(right_side + floor_width + floor_interval, new_floor.transform.position.y, 0);
-                // Create new floor and get the spriterenderer of that
-                GameObject fl_child = Instantiate(new_floor, floor_pos, Quaternion.identity);
+                if (right_side < camera_left)
+                    rm_fl_sr = fl;
 
-                new_fl_sr = fl_child.gameObject.transform.Find("Floor").GetComponent<SpriteRenderer>();
-                new_fl_sr.color = Random.ColorHSV();
+                if (i == floors.Count && right_side < camera_right) {
+                    Vector3 floor_pos = new Vector3(right_side + floor_width + floor_interval, new_floor.transform.position.y, 0);
+                    // Create new floor and get the spriterenderer of that
+                    GameObject fl_child = Instantiate(new_floor, floor_pos, Quaternion.identity);
+
+                    new_fl_sr = fl_child.gameObject.transform.Find("Floor").Find("Floor").GetComponent<SpriteRenderer>();
+                    new_fl_sr.color = Random.ColorHSV();
+                }
             }
-        }
 
-        if (rm_fl_sr) {
-            floors.Remove(rm_fl_sr);
-            Destroy(rm_fl_sr.transform.parent.gameObject);
-        }
+            if (rm_fl_sr) {
+                floors.Remove(rm_fl_sr);
+                Destroy(rm_fl_sr.transform.parent.gameObject);
+            }
 
-        if (new_fl_sr)
-            floors.Add(new_fl_sr);
+            if (new_fl_sr)
+                floors.Add(new_fl_sr);
+        }
     }
 }

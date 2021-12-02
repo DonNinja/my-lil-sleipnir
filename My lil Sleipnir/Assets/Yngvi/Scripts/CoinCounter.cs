@@ -7,8 +7,7 @@ public class CoinCounter : MonoBehaviour
     public TMPro.TextMeshProUGUI coin_label;
 
     // Update is called once per frame
-    void Update()
-    {
+    void Update() {
         coin_label.text = GameManager.instance.coin_counter.ToString();
     }
 }

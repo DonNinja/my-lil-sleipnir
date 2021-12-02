@@ -11,6 +11,7 @@ public class PlayerScript : MonoBehaviour
     public Rigidbody2D rb;
     public bool dj_enabled;
     public float player_weight;
+    public float jump_weight;
 
     bool grounded = false;
     bool second_jump;
@@ -23,7 +24,7 @@ public class PlayerScript : MonoBehaviour
     void Update() {
         if (Input.GetKeyDown(KeyCode.UpArrow) && (grounded || second_jump)) {
             // Force still movement so the 2nd jump will be constant
-            rb.gravityScale = 1f;
+            rb.gravityScale = jump_weight;
             rb.velocity = new Vector2(0, 0);
             rb.AddForce(new Vector2(0, jump_height));
 

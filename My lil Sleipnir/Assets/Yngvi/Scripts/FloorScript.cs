@@ -10,6 +10,5 @@ public class FloorScript : MonoBehaviour
     void FixedUpdate() {
         if (GameManager.instance.game_started)
             transform.position = new Vector2(transform.position.x - (PlayerScript.instance.player_speed * Time.deltaTime), transform.position.y);
-        // TODO: Potentially add an incremental speed gain
     }
 }
