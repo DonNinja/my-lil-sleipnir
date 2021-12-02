@@ -13,6 +13,8 @@ public class GameManager : MonoBehaviour
     public int coin_counter = 0;
     public float floor_interval;
     public float start_time;
+    public int currency;
+    public int foodAmount;
 
     SpriteRenderer rm_fl_sr;
     SpriteRenderer new_fl_sr;
@@ -20,18 +22,21 @@ public class GameManager : MonoBehaviour
     float right_side;
     float init_time;
 
-    private void Awake() {
+    private void Awake()
+    {
         instance = this;
         init_time = Time.time;
     }
 
     // Start is called before the first frame update
-    void Start() {
+    void Start()
+    {
         floor_width = floors[0].bounds.size.x / 2;
     }
 
     // Update is called once per frame
-    void Update() {
+    void Update()
+    {
         rm_fl_sr = null;
         new_fl_sr = null;
         int i = 0;
@@ -39,7 +44,8 @@ public class GameManager : MonoBehaviour
         if (Time.time - init_time > start_time)
             game_started = true;
 
-        if (generate_level) {
+        if (generate_level)
+        {
 
             // Get the right side of the camera
             float camera_right = main_camera.ScreenToWorldPoint(new Vector3(main_camera.pixelRect.xMax, 0, 0)).x + main_camera.transform.position.x;
@@ -47,7 +53,8 @@ public class GameManager : MonoBehaviour
             // TODO: Make this dynamic so we don't require the player to stay in x coords 0 (This isn't ultimately required, but would be nice)
             float camera_left = main_camera.ScreenToWorldPoint(new Vector3(main_camera.pixelRect.xMax - main_camera.pixelRect.xMax, 0, 0)).x + main_camera.transform.position.x;
 
-            foreach (SpriteRenderer fl in floors) {
+            foreach (SpriteRenderer fl in floors)
+            {
                 i++;
 
                 right_side = fl.bounds.center.x + floor_width;
@@ -55,7 +62,8 @@ public class GameManager : MonoBehaviour
                 if (right_side < camera_left)
                     rm_fl_sr = fl;
 
-                if (i == floors.Count && right_side < camera_right) {
+                if (i == floors.Count && right_side < camera_right)
+                {
                     Vector3 floor_pos = new Vector3(right_side + floor_width + floor_interval, new_floor.transform.position.y, 0);
 
                     // Create new floor and get the spriterenderer of that
@@ -66,7 +74,8 @@ public class GameManager : MonoBehaviour
                 }
             }
 
-            if (rm_fl_sr) {
+            if (rm_fl_sr)
+            {
                 floors.Remove(rm_fl_sr);
                 Destroy(rm_fl_sr.transform.parent.gameObject);
             }
