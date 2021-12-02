@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 3880478476964585330}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 15}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 5, y: 5, z: 5}
   m_Children:
   - {fileID: 8059101146770558149}
   - {fileID: 4350785049895116546}
@@ -57,6 +57,7 @@ GameObject:
   - component: {fileID: 8059101146770558149}
   - component: {fileID: 2641091981365557261}
   - component: {fileID: 127398729331789573}
+  - component: {fileID: 2506909253225069481}
   m_Layer: 0
   m_Name: Death
   m_TagString: Untagged
@@ -72,8 +73,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8376568012571622107}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.015, z: 0}
-  m_LocalScale: {x: 0.1545165, y: 1, z: 1}
+  m_LocalPosition: {x: 0.031, y: 0.015, z: 0}
+  m_LocalScale: {x: 0.15253678, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2564278523532794595}
   m_RootOrder: 0
@@ -85,7 +86,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8376568012571622107}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -116,6 +117,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6ff3d441031010478509c0356e4d95e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!68 &2506909253225069481
+EdgeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8376568012571622107}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_EdgeRadius: 0
+  m_Points:
+  - {x: -18.41695, y: 0.047343224}
+  - {x: -10.255235, y: 0.0023305416}
+  - {x: 4.3854985, y: 0.056795515}
+  - {x: 18.388731, y: 0.20228457}
+  m_AdjacentStartPoint: {x: 0, y: 0}
+  m_AdjacentEndPoint: {x: 0, y: 0}
+  m_UseAdjacentStartPoint: 0
+  m_UseAdjacentEndPoint: 0
 --- !u!1 &8972763727902741868
 GameObject:
   m_ObjectHideFlags: 0
@@ -129,7 +154,7 @@ GameObject:
   - component: {fileID: 2447071246481145087}
   - component: {fileID: 1430628019727031180}
   - component: {fileID: 2390301757396743137}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Floor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -264,8 +289,8 @@ EdgeCollider2D:
   m_Offset: {x: 0, y: 0}
   m_EdgeRadius: 0
   m_Points:
-  - {x: -2.7589078, y: 0.15967736}
-  - {x: 0.3628234, y: 0.1977332}
+  - {x: -2.7589078, y: 0.16}
+  - {x: 0.3628234, y: 0.16}
   - {x: 1.0283911, y: 0.27029914}
   - {x: 2.8399014, y: 0.3483062}
   m_AdjacentStartPoint: {x: 0, y: 0}

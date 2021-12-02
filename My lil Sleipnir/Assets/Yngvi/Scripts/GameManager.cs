@@ -57,6 +57,7 @@ public class GameManager : MonoBehaviour
 
                 if (i == floors.Count && right_side < camera_right) {
                     Vector3 floor_pos = new Vector3(right_side + floor_width + floor_interval, new_floor.transform.position.y, 0);
+
                     // Create new floor and get the spriterenderer of that
                     GameObject fl_child = Instantiate(new_floor, floor_pos, Quaternion.identity);
 
