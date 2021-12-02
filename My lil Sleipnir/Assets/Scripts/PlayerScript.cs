@@ -45,6 +45,10 @@ public class PlayerScript : MonoBehaviour
                 rb.velocity = new Vector2(0, 0);
 
         if (rb.position.y < -50) {
+#if UNITY_EDITOR
+            UnityEditor.EditorApplication.isPlaying = false;
+#endif
+
             GameManager.instance.hunger -= Random.Range(0, 2);
             GameManager.instance.hygiene -= Random.Range(0, 5);
             GameManager.instance.comfort -= Random.Range(0, 3);
