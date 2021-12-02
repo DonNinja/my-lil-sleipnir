@@ -6,14 +6,9 @@ public class CurrencyCounter : MonoBehaviour
 {
     // Start is called before the first frame update
     public TMPro.TextMeshProUGUI currencyLabel;
-    void Start()
-    {
-
-    }
 
     // Update is called once per frame
-    void Update()
-    {
-        currencyLabel.text = GameManager.instance.currency.ToString();
+    void Update() {
+        currencyLabel.text = GameManager.instance.coin_counter.ToString();
     }
 }

@@ -9,40 +9,28 @@ public class FeedPet : MonoBehaviour
     private Slider slider;
     private BarFill foodslider;
 
-    private void Awake()
-    {
+    private void Awake() {
         slider = gameObject.GetComponent<Slider>();
         foodslider = GameObject.Find("BarFood").GetComponent<BarFill>();
-
     }
-    void Start()
-    {
-
-    }
-    public void Feed()
-    {
+    public void Feed() {
         Debug.Log(slider.value);
-        if (GameManager.instance.foodAmount >= 1)
-        {
-            if (slider.value < 10)
-            {
+        if (GameManager.instance.food_amount >= 1) {
+            if (slider.value < 10) {
                 foodslider.IncrementProgress(1f);
-                GameManager.instance.foodAmount -= 1;
+                GameManager.instance.food_amount -= 1;
             }
-            else
-            {
+            else {
                 Debug.Log("Already maxed out the bar");
             }
         }
-        else
-        {
+        else {
             Debug.Log("Not enough food to feed Sleipnir");
             // Add func that highlights your coins showing the player you don't have enough
         }
     }
     // Update is called once per frame
-    void Update()
-    {
+    void Update() {
         // Feeding costs 4 coins
     }
 
