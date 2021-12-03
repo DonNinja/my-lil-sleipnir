@@ -49,9 +49,9 @@ public class PlayerScript : MonoBehaviour
             UnityEditor.EditorApplication.isPlaying = false;
 #endif
 
-            GameManager.instance.hunger -= Random.Range(0, 2);
-            GameManager.instance.hygiene -= Random.Range(0, 5);
-            GameManager.instance.comfort -= Random.Range(0, 3);
+            GameManager.instance.hunger -= Random.Range(0f, 2f);
+            GameManager.instance.hygiene -= Random.Range(0f, 5f);
+            GameManager.instance.comfort -= Random.Range(0f, 3f);
 
             SceneManager.LoadSceneAsync("Menu");
         }
