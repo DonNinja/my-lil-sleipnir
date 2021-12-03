@@ -65,10 +65,10 @@ public class PlayerScript : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision) {
         Rigidbody2D other = collision.attachedRigidbody;
         if (other) {
+            coin_get_sound.Play();
             Destroy(other.gameObject);
             Destroy(other);
             GameManager.instance.coin_counter++;
-            coin_get_sound.Play();
         }
     }
 
