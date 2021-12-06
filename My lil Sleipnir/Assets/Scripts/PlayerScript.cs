@@ -4,11 +4,15 @@ using UnityEngine.SceneManagement;
 public class PlayerScript : MonoBehaviour
 {
     public static PlayerScript instance;
+    [Range(0, 30)]
     public float player_speed;
     public float max_speed;
+    [Range(0, 20)]
     public float jump_height;
+    [Range(0, 20)]
     public float player_weight;
-    public float jump_weight;
+    public float low_jump_weight;
+    public float forced_down_weight;
     public float extra_height;
     public Rigidbody2D rb;
     public BoxCollider2D center_collider;
@@ -19,6 +23,7 @@ public class PlayerScript : MonoBehaviour
 
     bool second_jump;
     float init_time;
+    KeyCode jump = KeyCode.UpArrow;
 
     private void Awake() {
         instance = this;
@@ -27,11 +32,10 @@ public class PlayerScript : MonoBehaviour
 
     // Update is called once per frame
     void Update() {
-        if (Input.GetKeyDown(KeyCode.UpArrow) && (IsGrounded() || second_jump)) {
+        if (Input.GetKeyDown(jump) && (IsGrounded() || second_jump)) {
             // Force still movement so the 2nd jump will be constant
-            rb.gravityScale = jump_weight;
             rb.velocity = new Vector2(0, 0);
-            rb.AddForce(new Vector2(0, jump_height));
+            rb.velocity = Vector2.up * jump_height;
 
             // Set second jump
             second_jump = IsGrounded() && dj_enabled;
@@ -39,10 +43,22 @@ public class PlayerScript : MonoBehaviour
             jump_sound.Play();
         }
 
+        if (Input.GetKeyDown(KeyCode.DownArrow)) {
+            if (!IsGrounded()) {
+                rb.velocity += Vector2.up * Physics2D.gravity.y * (forced_down_weight - 1) * Time.deltaTime;
+            }
+            else {
+                // Potential ducking thing
+            }
+        }
+
         // Start falling down when key is released
-        if (Input.GetKeyUp(KeyCode.UpArrow) && !IsGrounded())
-            if (rb.velocity.y > 0)
-                rb.velocity = new Vector2(0, 0);
+        if (!IsGrounded()) {
+            if (rb.velocity.y < 0)
+                rb.velocity += Vector2.up * Physics2D.gravity.y * (player_weight - 1) * Time.deltaTime;
+            else if (!Input.GetKey(jump) && rb.velocity.y > 0)
+                rb.velocity += Vector2.up * Physics2D.gravity.y * (low_jump_weight - 1) * Time.deltaTime;
+        }
 
         if (rb.position.y < -50) {
 #if UNITY_EDITOR
@@ -59,7 +75,6 @@ public class PlayerScript : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision) {
         second_jump = dj_enabled;
-        rb.gravityScale = player_weight;
     }
 
     private void OnTriggerEnter2D(Collider2D collision) {
