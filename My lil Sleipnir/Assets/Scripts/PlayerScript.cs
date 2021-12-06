@@ -48,7 +48,7 @@ public class PlayerScript : MonoBehaviour
                 rb.velocity += Vector2.up * Physics2D.gravity.y * (forced_down_weight - 1) * Time.deltaTime;
             }
             else {
-                // Potential ducking thing
+                // Potential ducking thing?
             }
         }
 
