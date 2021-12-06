@@ -79,21 +79,15 @@ public class PlayerScript : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision) {
         Rigidbody2D other = collision.attachedRigidbody;
-        if (other) {
+        if (other)
             coin_get_sound.Play();
-        }
     }
 
     private bool IsGrounded() {
         RaycastHit2D raycast_hit = Physics2D.Raycast(center_collider.bounds.center, Vector2.down, center_collider.bounds.extents.y + extra_height, ground);
 
-        // Debugging
-        Color ray_colour;
-        if (raycast_hit.collider != null)
-            ray_colour = Color.green;
-        else
-            ray_colour = Color.red;
-
+        // This creates a line for debugging
+        Color ray_colour = raycast_hit.collider != null ? Color.green : Color.red;
         Debug.DrawRay(center_collider.bounds.center, Vector2.down * (center_collider.bounds.extents.y + extra_height), ray_colour);
 
         return raycast_hit.collider != null;

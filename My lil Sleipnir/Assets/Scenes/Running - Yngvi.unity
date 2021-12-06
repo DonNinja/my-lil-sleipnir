@@ -3385,29 +3385,9 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 734609131933961433, guid: 9f76ac80fc799e24096fbd3ef497c911, type: 3}
-      propertyPath: jump_height
-      value: 7.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 734609131933961433, guid: 9f76ac80fc799e24096fbd3ef497c911, type: 3}
-      propertyPath: player_weight
-      value: 2.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 734609131933961433, guid: 9f76ac80fc799e24096fbd3ef497c911, type: 3}
-      propertyPath: low_jump_weight
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 734609131933961433, guid: 9f76ac80fc799e24096fbd3ef497c911, type: 3}
-      propertyPath: forced_down_weight
-      value: 30
-      objectReference: {fileID: 0}
     - target: {fileID: 734609131933961436, guid: 9f76ac80fc799e24096fbd3ef497c911, type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 734609131933961436, guid: 9f76ac80fc799e24096fbd3ef497c911, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 734609131933961438, guid: 9f76ac80fc799e24096fbd3ef497c911, type: 3}
       propertyPath: m_RootOrder
@@ -3423,7 +3403,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 734609131933961438, guid: 9f76ac80fc799e24096fbd3ef497c911, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 734609131933961438, guid: 9f76ac80fc799e24096fbd3ef497c911, type: 3}
       propertyPath: m_LocalRotation.w
