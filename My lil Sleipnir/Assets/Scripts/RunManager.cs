@@ -31,13 +31,13 @@ public class RunManager : MonoBehaviour
         rm_fl_sr = null;
         new_fl_sr = null;
 
-        if (generate_level) {
+        //if (generate_level) {
 
-            // Get the right side of the camera
-            float camera_right = main_camera.ScreenToWorldPoint(new Vector3(main_camera.pixelRect.xMax, 0, 0)).x + main_camera.transform.position.x;
+            //// Get the right side of the camera
+            //float camera_right = main_camera.ScreenToWorldPoint(new Vector3(main_camera.pixelRect.xMax, 0, 0)).x + main_camera.transform.position.x;
 
-            // TODO: Make this dynamic so we don't require the player to stay in x coords 0 (This isn't ultimately required, but would be nice)
-            float camera_left = main_camera.ScreenToWorldPoint(new Vector3(main_camera.pixelRect.xMax - main_camera.pixelRect.xMax, 0, 0)).x + main_camera.transform.position.x;
+            //// TODO: Make this dynamic so we don't require the player to stay in x coords 0 (This isn't ultimately required, but would be nice)
+            //float camera_left = main_camera.ScreenToWorldPoint(new Vector3(main_camera.pixelRect.xMax - main_camera.pixelRect.xMax, 0, 0)).x + main_camera.transform.position.x;
 
             //foreach (SpriteRenderer fl in floors) {
             //    i++;
@@ -66,6 +66,6 @@ public class RunManager : MonoBehaviour
 
             //if (new_fl_sr)
             //    floors.Add(new_fl_sr);
-        }
+        //}
     }
 }
