@@ -24,7 +24,7 @@ public class PlayerScript : MonoBehaviour
     bool second_jump;
     float init_time;
     float gravity;
-    float ground_speed;
+    bool grounded;
     KeyCode jump = KeyCode.UpArrow;
 
     private void Awake() {
@@ -35,18 +35,19 @@ public class PlayerScript : MonoBehaviour
 
     // Update is called once per frame
     void Update() {
-        if (Input.GetKeyDown(jump) && (IsGrounded() || second_jump)) {
+        grounded = IsGrounded();
+        if (Input.GetKeyDown(jump) && (grounded || second_jump)) {
             // Force still movement so the 2nd jump will be constant
             rb.velocity = Vector2.up * jump_height;
 
             // Set second jump
-            second_jump = IsGrounded() && dj_enabled;
+            second_jump = grounded && dj_enabled;
 
             jump_sound.Play();
         }
 
         if (Input.GetKeyDown(KeyCode.DownArrow)) {
-            if (!IsGrounded()) {
+            if (!grounded) {
                 rb.velocity += Vector2.up * gravity * (forced_down_weight - 1) * Time.deltaTime;
             }
             else {
@@ -55,7 +56,7 @@ public class PlayerScript : MonoBehaviour
         }
 
         // Start falling down when key is released
-        if (!IsGrounded()) {
+        if (!grounded) {
             // Keeping this if we need it in the future
             //if (rb.velocity.y < 0)
             //    rb.velocity += Vector2.up * gravity * (player_weight - 1) * Time.deltaTime;

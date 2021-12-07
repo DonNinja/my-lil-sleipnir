@@ -3391,7 +3391,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 734609131933961433, guid: 9f76ac80fc799e24096fbd3ef497c911, type: 3}
       propertyPath: jump_height
-      value: 20
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 734609131933961433, guid: 9f76ac80fc799e24096fbd3ef497c911, type: 3}
+      propertyPath: player_speed
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 734609131933961433, guid: 9f76ac80fc799e24096fbd3ef497c911, type: 3}
       propertyPath: player_weight
