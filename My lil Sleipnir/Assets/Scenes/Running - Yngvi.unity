@@ -3385,6 +3385,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 734609131933961433, guid: 9f76ac80fc799e24096fbd3ef497c911, type: 3}
+      propertyPath: dj_enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 734609131933961433, guid: 9f76ac80fc799e24096fbd3ef497c911, type: 3}
+      propertyPath: jump_height
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 734609131933961433, guid: 9f76ac80fc799e24096fbd3ef497c911, type: 3}
+      propertyPath: player_weight
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 734609131933961433, guid: 9f76ac80fc799e24096fbd3ef497c911, type: 3}
+      propertyPath: low_jump_weight
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 734609131933961436, guid: 9f76ac80fc799e24096fbd3ef497c911, type: 3}
       propertyPath: m_Name
       value: Player
@@ -3432,6 +3448,14 @@ PrefabInstance:
     - target: {fileID: 734609131933961438, guid: 9f76ac80fc799e24096fbd3ef497c911, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 734609131933961439, guid: 9f76ac80fc799e24096fbd3ef497c911, type: 3}
+      propertyPath: m_Mass
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 734609131933961439, guid: 9f76ac80fc799e24096fbd3ef497c911, type: 3}
+      propertyPath: m_GravityScale
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 734609133017568355, guid: 9f76ac80fc799e24096fbd3ef497c911, type: 3}
       propertyPath: floors.Array.data[0]
