@@ -64,6 +64,9 @@ public class PlayerScript : MonoBehaviour
             if (!Input.GetKey(jump))
                 rb.velocity += Vector2.up * gravity * (rb.mass) * Time.deltaTime;
         }
+        else {
+            second_jump = dj_enabled;
+        }
 
         if (rb.position.y < -50) {
 #if UNITY_EDITOR
@@ -76,10 +79,6 @@ public class PlayerScript : MonoBehaviour
 
             SceneManager.LoadSceneAsync("Menu");
         }
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision) {
-        second_jump = dj_enabled;
     }
 
     private void OnTriggerEnter2D(Collider2D collision) {
