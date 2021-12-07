@@ -5,8 +5,9 @@ public class MenuManager : MonoBehaviour
 {
     // Start is called before the first frame update
     public AudioSource audioSource;
-    public void changeToRunner() {
+    public void changeToRunner()
+    {
         audioSource.Play();
-        SceneManager.LoadSceneAsync("Running");
+        SceneManager.LoadSceneAsync("RunningBreki");
     }
 }

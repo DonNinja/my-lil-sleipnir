@@ -22,7 +22,8 @@ public class RunManager : MonoBehaviour
     float init_time;
 
 
-    void Awake() {
+    void Awake()
+    {
         instance = this;
 
         if (floors.Count > 0)
@@ -30,15 +31,21 @@ public class RunManager : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update() {
+    void Update()
+    {
         rm_fl_sr = null;
         new_fl_sr = null;
         int i = 0;
 
+        // Score System
+        GameManager.instance.score += 1;
+        Debug.Log(GameManager.instance.score);
+
         //if (Time.time - init_time > start_time)
         //    game_started = true;
 
-        if (generate_level) {
+        if (generate_level)
+        {
 
             // Get the right side of the camera
             float camera_right = main_camera.ScreenToWorldPoint(new Vector3(main_camera.pixelRect.xMax, 0, 0)).x + main_camera.transform.position.x;
@@ -46,7 +53,8 @@ public class RunManager : MonoBehaviour
             // TODO: Make this dynamic so we don't require the player to stay in x coords 0 (This isn't ultimately required, but would be nice)
             float camera_left = main_camera.ScreenToWorldPoint(new Vector3(main_camera.pixelRect.xMax - main_camera.pixelRect.xMax, 0, 0)).x + main_camera.transform.position.x;
 
-            foreach (SpriteRenderer fl in floors) {
+            foreach (SpriteRenderer fl in floors)
+            {
                 i++;
 
                 right_side = fl.bounds.center.x + floor_width;
@@ -54,7 +62,8 @@ public class RunManager : MonoBehaviour
                 if (right_side < camera_left)
                     rm_fl_sr = fl;
 
-                if (i == floors.Count && right_side < camera_right) {
+                if (i == floors.Count && right_side < camera_right)
+                {
                     Vector3 floor_pos = new Vector3(right_side + floor_width + floor_interval, new_floor.transform.position.y, 0);
 
                     // Create new floor and get the spriterenderer of that
@@ -65,7 +74,8 @@ public class RunManager : MonoBehaviour
                 }
             }
 
-            if (rm_fl_sr) {
+            if (rm_fl_sr)
+            {
                 floors.Remove(rm_fl_sr);
                 Destroy(rm_fl_sr.transform.parent.gameObject);
             }

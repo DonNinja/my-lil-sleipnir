@@ -20,14 +20,17 @@ public class PlayerScript : MonoBehaviour
     bool second_jump;
     float init_time;
 
-    private void Awake() {
+    private void Awake()
+    {
         instance = this;
         init_time = Time.time;
     }
 
     // Update is called once per frame
-    void Update() {
-        if (Input.GetKeyDown(KeyCode.UpArrow) && (IsGrounded() || second_jump)) {
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.UpArrow) && (IsGrounded() || second_jump))
+        {
             // Force still movement so the 2nd jump will be constant
             rb.gravityScale = jump_weight;
             rb.velocity = new Vector2(0, 0);
@@ -44,7 +47,8 @@ public class PlayerScript : MonoBehaviour
             if (rb.velocity.y > 0)
                 rb.velocity = new Vector2(0, 0);
 
-        if (rb.position.y < -50) {
+        if (rb.position.y < -50)
+        {
 #if UNITY_EDITOR
             UnityEditor.EditorApplication.isPlaying = false;
 #endif
@@ -57,14 +61,17 @@ public class PlayerScript : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision) {
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
         second_jump = dj_enabled;
         rb.gravityScale = player_weight;
     }
 
-    private void OnTriggerEnter2D(Collider2D collision) {
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
         Rigidbody2D other = collision.attachedRigidbody;
-        if (other) {
+        if (other)
+        {
             coin_get_sound.Play();
             Destroy(other.gameObject);
             Destroy(other);
@@ -72,7 +79,8 @@ public class PlayerScript : MonoBehaviour
         }
     }
 
-    private bool IsGrounded() {
+    private bool IsGrounded()
+    {
         RaycastHit2D raycast_hit = Physics2D.Raycast(center_collider.bounds.center, Vector2.down, center_collider.bounds.extents.y + extra_height, ground);
 
         // Debugging
