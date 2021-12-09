@@ -5,6 +5,7 @@ https://yngvi19.itch.io/my-lil-sleipnir?secret=GxjSwGIJdMoxmdCAW5pgVYN7s2g
 
 Attributions:  
 https://freesound.org/people/n_audioman/sounds/321950/   
+https://freesound.org/people/FenrirFangs  
 https://freesound.org/people/Timbre/sounds/70104/   
 https://freesound.org/people/jnr%20hacksaw/sounds/11221/   
 https://freesound.org/people/maikguts/sounds/379878/   
