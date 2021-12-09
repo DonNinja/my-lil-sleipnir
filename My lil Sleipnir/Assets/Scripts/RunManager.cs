@@ -21,10 +21,15 @@ public class RunManager : MonoBehaviour
     float right_side;
     float init_time;
 
+    public bool game_end;
 
     void Awake()
     {
         instance = this;
+        Time.timeScale = 1;
+        GameManager.instance.score = 0;
+        game_end = false;
+
 
         if (floors.Count > 0)
             floor_width = floors[0].bounds.size.x / 2;
@@ -38,8 +43,11 @@ public class RunManager : MonoBehaviour
         int i = 0;
 
         // Score System
-        GameManager.instance.score += 1;
-        Debug.Log(GameManager.instance.score);
+        if (game_end == false)
+        {
+            GameManager.instance.score += 1;
+            //Debug.Log(GameManager.instance.score);
+        }
 
         //if (Time.time - init_time > start_time)
         //    game_started = true;

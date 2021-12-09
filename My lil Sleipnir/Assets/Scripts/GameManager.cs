@@ -8,7 +8,8 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
     public int coin_counter = 0;
     public int food_amount;
-    public float score;
+    public int score;
+    public int final_score;
 
     public Slider hunger_slider;
     public float hunger;
