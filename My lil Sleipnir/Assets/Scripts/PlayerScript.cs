@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement;
 public class PlayerScript : MonoBehaviour
 {
     public static PlayerScript instance;
+    public GameObject player;
     [Range(0, 30)]
     public float player_speed;
     public float max_speed;
@@ -79,6 +80,10 @@ public class PlayerScript : MonoBehaviour
 
             SceneManager.LoadSceneAsync("Menu");
         }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision) {
+        
     }
 
     private void OnTriggerEnter2D(Collider2D collision) {

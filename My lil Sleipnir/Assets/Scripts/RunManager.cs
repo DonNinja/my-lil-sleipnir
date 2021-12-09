@@ -26,6 +26,7 @@ public class RunManager : MonoBehaviour
     // Update is called once per frame
     void Update() {
         Vector2 end_pos = last_section.transform.Find("End").position;
+        Debug.Log(end_pos);
         if (Vector2.Distance(player.transform.position, end_pos) < Camera.main.transform.position.x + IN_CAMERA_DIST) {
             GenerateNewSection(end_pos);
         }
