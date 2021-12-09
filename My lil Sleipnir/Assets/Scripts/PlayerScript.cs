@@ -82,22 +82,11 @@ public class PlayerScript : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision) {
-        
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision) {
-        Rigidbody2D other = collision.attachedRigidbody;
-        if (other)
-            coin_get_sound.Play();
-    }
-
     private bool IsGrounded() {
         Vector2 ray_1 = center_collider.bounds.center - center_collider.bounds.extents;
         Vector2 ray_2 = center_collider.bounds.center + center_collider.bounds.extents;
         ray_2.y -= center_collider.bounds.extents.y * 2;
         float collider_offset = extra_height;
-        //center_collider.bounds.extents.y +
 
         RaycastHit2D raycast_hit_1 = Physics2D.Raycast(ray_1, Vector2.down, collider_offset, ground);
         RaycastHit2D raycast_hit_2 = Physics2D.Raycast(ray_2, Vector2.down, collider_offset, ground);
