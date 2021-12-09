@@ -5,22 +5,20 @@ public class PlayerScript : MonoBehaviour
 {
     public static PlayerScript instance;
     public GameObject player;
-    [Range(0, 30)]
     public float player_speed;
-    public float max_speed;
-    [Range(0, 20)]
-    public float jump_height;
-    [Range(0, 20)]
-    public float player_weight;
-    public float low_jump_weight;
-    public float forced_down_weight;
-    public float extra_height;
-    public Rigidbody2D rb;
-    public BoxCollider2D center_collider;
-    public bool dj_enabled;
-    public LayerMask ground;
+    [SerializeField] float max_speed;
+    [SerializeField] float jump_height;
+    [SerializeField] float player_weight;
+    [SerializeField] float low_jump_weight;
+    [SerializeField] float forced_down_weight;
+    [SerializeField] float extra_height;
+    [SerializeField] Rigidbody2D rb;
+    [SerializeField] BoxCollider2D center_collider;
+    [SerializeField] bool dj_enabled;
+    [SerializeField] LayerMask ground;
+    [SerializeField] AudioSource jump_sound;
     public AudioSource coin_get_sound;
-    public AudioSource jump_sound;
+    [SerializeField] float grounded_offset;
 
     bool second_jump;
     float init_time;
@@ -83,10 +81,11 @@ public class PlayerScript : MonoBehaviour
     }
 
     private bool IsGrounded() {
-        Vector2 ray_1 = center_collider.bounds.center - center_collider.bounds.extents;
-        Vector2 ray_2 = center_collider.bounds.center + center_collider.bounds.extents;
-        ray_2.y -= center_collider.bounds.extents.y * 2;
-        float collider_offset = extra_height;
+        Vector2 ray_1 = center_collider.bounds.center;
+        ray_1.x -= (center_collider.bounds.extents.x + grounded_offset);
+        Vector2 ray_2 = center_collider.bounds.center;
+        ray_2.x += center_collider.bounds.extents.x;
+        float collider_offset = center_collider.bounds.extents.y + extra_height;
 
         RaycastHit2D raycast_hit_1 = Physics2D.Raycast(ray_1, Vector2.down, collider_offset, ground);
         RaycastHit2D raycast_hit_2 = Physics2D.Raycast(ray_2, Vector2.down, collider_offset, ground);

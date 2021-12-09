@@ -130,6 +130,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 734609131852069155, guid: 9f76ac80fc799e24096fbd3ef497c911, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 734609131853748541, guid: 9f76ac80fc799e24096fbd3ef497c911, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -142,14 +146,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 734609131933961433, guid: 9f76ac80fc799e24096fbd3ef497c911, type: 3}
-      propertyPath: jump_height
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 734609131933961433, guid: 9f76ac80fc799e24096fbd3ef497c911, type: 3}
-      propertyPath: center_collider
-      value: 
-      objectReference: {fileID: 1886006517}
     - target: {fileID: 734609131933961436, guid: 9f76ac80fc799e24096fbd3ef497c911, type: 3}
       propertyPath: m_Name
       value: Player
@@ -226,21 +222,13 @@ PrefabInstance:
       propertyPath: IN_CAMERA_DIST
       value: 55
       objectReference: {fileID: 0}
-    - target: {fileID: 734609133017568355, guid: 9f76ac80fc799e24096fbd3ef497c911, type: 3}
-      propertyPath: floor_collection.Array.size
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 734609133017568355, guid: 9f76ac80fc799e24096fbd3ef497c911, type: 3}
-      propertyPath: floor_collection.Array.data[3]
-      value: 
-      objectReference: {fileID: 3918716950046489664, guid: e8ada9dcca561b14d852b34d4b6fee50, type: 3}
     - target: {fileID: 734609133848293076, guid: 9f76ac80fc799e24096fbd3ef497c911, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 42.5
       objectReference: {fileID: 0}
     - target: {fileID: 734609133848293078, guid: 9f76ac80fc799e24096fbd3ef497c911, type: 3}
       propertyPath: m_fontSize
-      value: 118.7
+      value: 119.4
       objectReference: {fileID: 0}
     - target: {fileID: 4728120374754527346, guid: 9f76ac80fc799e24096fbd3ef497c911, type: 3}
       propertyPath: m_Size.x
@@ -293,7 +281,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6032834635444982218, guid: 91c92cc0b9b61b0458d571685eaf6423, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -4
+      value: -2
       objectReference: {fileID: 0}
     - target: {fileID: 6032834635444982218, guid: 91c92cc0b9b61b0458d571685eaf6423, type: 3}
       propertyPath: m_LocalPosition.z
@@ -337,9 +325,4 @@ PrefabInstance:
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7631427860420100085, guid: 91c92cc0b9b61b0458d571685eaf6423, type: 3}
   m_PrefabInstance: {fileID: 943661953}
-  m_PrefabAsset: {fileID: 0}
---- !u!61 &1886006517 stripped
-BoxCollider2D:
-  m_CorrespondingSourceObject: {fileID: 4728120374754527346, guid: 9f76ac80fc799e24096fbd3ef497c911, type: 3}
-  m_PrefabInstance: {fileID: 767909970}
   m_PrefabAsset: {fileID: 0}
