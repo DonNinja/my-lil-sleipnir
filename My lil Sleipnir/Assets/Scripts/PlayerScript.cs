@@ -4,8 +4,13 @@ using UnityEngine.SceneManagement;
 public class PlayerScript : MonoBehaviour
 {
     public static PlayerScript instance;
-    public GameObject player;
     public float player_speed;
+    [SerializeField] Rigidbody2D rb;
+    [SerializeField] BoxCollider2D center_collider;
+    [SerializeField] LayerMask ground;
+    public AudioSource coin_get_sound;
+    [SerializeField] AudioSource jump_sound;
+    [SerializeField] Animator anim;
     [SerializeField] float min_speed;
     [SerializeField] float max_speed;
     [SerializeField] float jump_height;
@@ -14,16 +19,9 @@ public class PlayerScript : MonoBehaviour
     [SerializeField] float grounded_offset;
     [SerializeField] float speed_add;
     [SerializeField] float brake_speed;
-    [SerializeField] Rigidbody2D rb;
-    [SerializeField] BoxCollider2D center_collider;
     [SerializeField] bool dj_enabled;
-    [SerializeField] LayerMask ground;
-    public AudioSource coin_get_sound;
-    [SerializeField] AudioSource jump_sound;
-    [SerializeField] Animator anim;
 
     bool second_jump;
-    float init_time;
     float gravity;
     bool grounded;
 
@@ -33,12 +31,12 @@ public class PlayerScript : MonoBehaviour
 
     private void Awake() {
         instance = this;
-        init_time = Time.time;
         gravity = Physics2D.gravity.y * rb.gravityScale;
     }
 
     // Update is called once per frame
     void Update() {
+        float curr_speed = player_speed / ((min_speed + max_speed) / 2);
         grounded = IsGrounded();
         if (Input.GetKeyDown(jump) && (grounded || second_jump)) {
             // Force still movement so the 2nd jump will be constant
@@ -61,27 +59,26 @@ public class PlayerScript : MonoBehaviour
 
         if (Input.GetKey(faster)) {
             if (player_speed < max_speed) {
+                // Increase speed
                 player_speed += speed_add;
             }
         }
         else if (Input.GetKey(slower)) {
             if (player_speed > min_speed) {
+                // Decrease speed
                 player_speed -= brake_speed;
             }
         }
 
         // Start falling down when key is released
         if (!grounded) {
-            if (anim.speed > 0.2f) {
-                //anim.Stop();
-                anim.speed = 0.2f;
-            }
+            anim.speed = curr_speed * 0.2f;
 
             if (!Input.GetKey(jump))
                 rb.velocity += Vector2.up * gravity * rb.mass * Time.deltaTime;
         }
         else {
-            anim.speed = player_speed / ((min_speed + max_speed) / 2);
+            anim.speed = curr_speed;
             second_jump = dj_enabled;
         }
 

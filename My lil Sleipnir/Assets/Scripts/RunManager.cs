@@ -28,6 +28,9 @@ public class RunManager : MonoBehaviour
 
     // Update is called once per frame
     void Update() {
+        if (floor_collection_left.Count == 0) {
+            floor_collection_left = new List<GameObject>(floor_collection);
+        }
         Vector2 end_pos = last_section.transform.Find("End").position;
         if (Vector2.Distance(player.transform.position, end_pos) < Camera.main.transform.position.x + IN_CAMERA_DIST) {
             GenerateNewSection(end_pos);
@@ -40,16 +43,11 @@ public class RunManager : MonoBehaviour
     }
 
     void GenerateNewSection(Vector2 position) {
-        if (floor_collection_left.Count == 0) {
-            floor_collection_left = new List<GameObject>(floor_collection);
-        }
         int i = Random.Range(0, floor_collection_left.Count);
         GameObject floor = floor_collection_left[i];
-        if (floor.name != last_section_name) {
-            last_section = Instantiate(floor, position, Quaternion.identity);
-            last_section_name = floor.name;
-            generated_floors.Add(last_section);
-        }
+        last_section = Instantiate(floor, position, Quaternion.identity);
+        last_section_name = floor.name;
+        generated_floors.Add(last_section);
         floor_collection_left.RemoveAt(i);
     }
 }

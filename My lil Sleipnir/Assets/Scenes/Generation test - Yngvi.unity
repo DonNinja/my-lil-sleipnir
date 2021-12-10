@@ -216,16 +216,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 734609133017568355, guid: 9f76ac80fc799e24096fbd3ef497c911, type: 3}
       propertyPath: floor_collection.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 734609133017568355, guid: 9f76ac80fc799e24096fbd3ef497c911, type: 3}
       propertyPath: floor_collection.Array.data[0]
       value: 
-      objectReference: {fileID: 9163187194141042288, guid: fc00f37ef4ec8174897eb7924e24fe21, type: 3}
+      objectReference: {fileID: 1280638602297109117, guid: df9c7b383a069d745948ae6c7e16c3a7, type: 3}
     - target: {fileID: 734609133017568355, guid: 9f76ac80fc799e24096fbd3ef497c911, type: 3}
       propertyPath: floor_collection.Array.data[1]
       value: 
-      objectReference: {fileID: 7631427860420100085, guid: 91c92cc0b9b61b0458d571685eaf6423, type: 3}
+      objectReference: {fileID: 1280638602297109117, guid: df9c7b383a069d745948ae6c7e16c3a7, type: 3}
     - target: {fileID: 734609133017568355, guid: 9f76ac80fc799e24096fbd3ef497c911, type: 3}
       propertyPath: floor_collection.Array.data[2]
       value: 
