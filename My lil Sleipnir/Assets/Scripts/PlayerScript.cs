@@ -6,10 +6,9 @@ public class PlayerScript : MonoBehaviour
     public static PlayerScript instance;
     public GameObject player;
     public float player_speed;
+    [SerializeField] float min_speed;
     [SerializeField] float max_speed;
     [SerializeField] float jump_height;
-    [SerializeField] float player_weight;
-    [SerializeField] float low_jump_weight;
     [SerializeField] float forced_down_weight;
     [SerializeField] float extra_height;
     [SerializeField] Rigidbody2D rb;
@@ -24,7 +23,10 @@ public class PlayerScript : MonoBehaviour
     float init_time;
     float gravity;
     bool grounded;
+
     KeyCode jump = KeyCode.UpArrow;
+    KeyCode faster = KeyCode.RightArrow;
+    KeyCode slower = KeyCode.LeftArrow;
 
     private void Awake() {
         instance = this;
@@ -54,12 +56,14 @@ public class PlayerScript : MonoBehaviour
             }
         }
 
+        //if (Input.GetKey(faster)) {
+        //    if (player_speed < max_speed) {
+        //        player_speed
+        //    }
+        //}
+
         // Start falling down when key is released
         if (!grounded) {
-            // Keeping this if we need it in the future
-            //if (rb.velocity.y < 0)
-            //    rb.velocity += Vector2.up * gravity * (player_weight - 1) * Time.deltaTime;
-            //else 
             if (!Input.GetKey(jump))
                 rb.velocity += Vector2.up * gravity * (rb.mass) * Time.deltaTime;
         }

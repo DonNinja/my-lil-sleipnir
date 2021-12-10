@@ -651,7 +651,7 @@ GameObject:
   - component: {fileID: 456665737441466056}
   - component: {fileID: 3953116851985236298}
   m_Layer: 0
-  m_Name: Floor 2
+  m_Name: Floor 2 - Yngvi
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -680,8 +680,8 @@ Transform:
   - {fileID: 2309316060158825203}
   - {fileID: 3709592642502211205}
   - {fileID: 7596655945648891983}
-  - {fileID: 7451387513430982988}
   - {fileID: 5473969896070064580}
+  - {fileID: 7451387513430982988}
   - {fileID: 1247794032106082388}
   - {fileID: 639181770971448125}
   - {fileID: 7659542378630623283}
@@ -1138,7 +1138,7 @@ Transform:
   m_LocalScale: {x: 81.01031, y: 0.8167, z: 1}
   m_Children: []
   m_Father: {fileID: 456665737441466056}
-  m_RootOrder: 13
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &2870959413823269994
 SpriteRenderer:
@@ -3058,7 +3058,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 340648706556398777, guid: dd755c09dbbe92c46bef633337d82dd6, type: 3}
       propertyPath: m_RootOrder
-      value: 12
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 340648706556398777, guid: dd755c09dbbe92c46bef633337d82dd6, type: 3}
       propertyPath: m_LocalPosition.x
