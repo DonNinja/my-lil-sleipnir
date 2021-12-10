@@ -3,6 +3,9 @@
 The game can be accessed online through itch.io here:  
 https://yngvi19.itch.io/my-lil-sleipnir?secret=GxjSwGIJdMoxmdCAW5pgVYN7s2g  
 
+Justification PDF:  
+[JUSTIFICATION.pdf](https://github.com/DonNinja/my-lil-sleipnir/files/7694410/JUSTIFICATION.pdf)  
+
 Attributions:  
 https://freesound.org/people/n_audioman/sounds/321950/   
 https://freesound.org/people/FenrirFangs  
