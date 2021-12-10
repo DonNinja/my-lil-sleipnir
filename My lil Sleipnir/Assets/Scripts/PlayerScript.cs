@@ -11,13 +11,16 @@ public class PlayerScript : MonoBehaviour
     [SerializeField] float jump_height;
     [SerializeField] float forced_down_weight;
     [SerializeField] float extra_height;
+    [SerializeField] float grounded_offset;
+    [SerializeField] float speed_add;
+    [SerializeField] float brake_speed;
     [SerializeField] Rigidbody2D rb;
     [SerializeField] BoxCollider2D center_collider;
     [SerializeField] bool dj_enabled;
     [SerializeField] LayerMask ground;
-    [SerializeField] AudioSource jump_sound;
     public AudioSource coin_get_sound;
-    [SerializeField] float grounded_offset;
+    [SerializeField] AudioSource jump_sound;
+    [SerializeField] Animator anim;
 
     bool second_jump;
     float init_time;
@@ -56,18 +59,29 @@ public class PlayerScript : MonoBehaviour
             }
         }
 
-        //if (Input.GetKey(faster)) {
-        //    if (player_speed < max_speed) {
-        //        player_speed
-        //    }
-        //}
+        if (Input.GetKey(faster)) {
+            if (player_speed < max_speed) {
+                player_speed += speed_add;
+            }
+        }
+        else if (Input.GetKey(slower)) {
+            if (player_speed > min_speed) {
+                player_speed -= brake_speed;
+            }
+        }
 
         // Start falling down when key is released
         if (!grounded) {
+            if (anim.speed > 0.2f) {
+                //anim.Stop();
+                anim.speed = 0.2f;
+            }
+
             if (!Input.GetKey(jump))
-                rb.velocity += Vector2.up * gravity * (rb.mass) * Time.deltaTime;
+                rb.velocity += Vector2.up * gravity * rb.mass * Time.deltaTime;
         }
         else {
+            anim.speed = player_speed / ((min_speed + max_speed) / 2);
             second_jump = dj_enabled;
         }
 

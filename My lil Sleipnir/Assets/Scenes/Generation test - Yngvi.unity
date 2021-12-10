@@ -202,14 +202,6 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 734609132010465539, guid: 9f76ac80fc799e24096fbd3ef497c911, type: 3}
-      propertyPath: m_Size.x
-      value: 0.4573431
-      objectReference: {fileID: 0}
-    - target: {fileID: 734609132010465539, guid: 9f76ac80fc799e24096fbd3ef497c911, type: 3}
-      propertyPath: m_Offset.x
-      value: -0.44475746
-      objectReference: {fileID: 0}
     - target: {fileID: 734609132166688213, guid: 9f76ac80fc799e24096fbd3ef497c911, type: 3}
       propertyPath: orthographic size
       value: 28.682417
@@ -222,6 +214,34 @@ PrefabInstance:
       propertyPath: IN_CAMERA_DIST
       value: 55
       objectReference: {fileID: 0}
+    - target: {fileID: 734609133017568355, guid: 9f76ac80fc799e24096fbd3ef497c911, type: 3}
+      propertyPath: floor_collection.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 734609133017568355, guid: 9f76ac80fc799e24096fbd3ef497c911, type: 3}
+      propertyPath: floor_collection.Array.data[0]
+      value: 
+      objectReference: {fileID: 9163187194141042288, guid: fc00f37ef4ec8174897eb7924e24fe21, type: 3}
+    - target: {fileID: 734609133017568355, guid: 9f76ac80fc799e24096fbd3ef497c911, type: 3}
+      propertyPath: floor_collection.Array.data[1]
+      value: 
+      objectReference: {fileID: 7631427860420100085, guid: 91c92cc0b9b61b0458d571685eaf6423, type: 3}
+    - target: {fileID: 734609133017568355, guid: 9f76ac80fc799e24096fbd3ef497c911, type: 3}
+      propertyPath: floor_collection.Array.data[2]
+      value: 
+      objectReference: {fileID: 526501493941395637, guid: a623f0c6ef348464992ff16c409793a7, type: 3}
+    - target: {fileID: 734609133017568355, guid: 9f76ac80fc799e24096fbd3ef497c911, type: 3}
+      propertyPath: floor_collection.Array.data[3]
+      value: 
+      objectReference: {fileID: 526501493941395637, guid: a623f0c6ef348464992ff16c409793a7, type: 3}
+    - target: {fileID: 734609133017568355, guid: 9f76ac80fc799e24096fbd3ef497c911, type: 3}
+      propertyPath: floor_collection.Array.data[5]
+      value: 
+      objectReference: {fileID: 9163187194141042288, guid: fc00f37ef4ec8174897eb7924e24fe21, type: 3}
+    - target: {fileID: 734609133017568355, guid: 9f76ac80fc799e24096fbd3ef497c911, type: 3}
+      propertyPath: floor_collection.Array.data[6]
+      value: 
+      objectReference: {fileID: 9163187194141042288, guid: fc00f37ef4ec8174897eb7924e24fe21, type: 3}
     - target: {fileID: 734609133848293076, guid: 9f76ac80fc799e24096fbd3ef497c911, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 42.5

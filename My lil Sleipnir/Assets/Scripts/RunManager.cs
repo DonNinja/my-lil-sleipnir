@@ -11,6 +11,7 @@ public class RunManager : MonoBehaviour
     [SerializeField] GameObject last_section;
     [SerializeField] GameObject player;
     [SerializeField] List<GameObject> floor_collection;
+    [SerializeField] List<GameObject> floor_collection_left;
     [SerializeField] List<GameObject> generated_floors;
     [SerializeField] float IN_CAMERA_DIST;
 
@@ -18,6 +19,7 @@ public class RunManager : MonoBehaviour
 
     void Awake() {
         instance = this;
+        floor_collection_left = new List<GameObject>(floor_collection);
     }
 
     void Start() {
@@ -38,12 +40,16 @@ public class RunManager : MonoBehaviour
     }
 
     void GenerateNewSection(Vector2 position) {
-        int i = Random.Range(0, floor_collection.Count);
-        GameObject floor = floor_collection[i];
+        if (floor_collection_left.Count == 0) {
+            floor_collection_left = new List<GameObject>(floor_collection);
+        }
+        int i = Random.Range(0, floor_collection_left.Count);
+        GameObject floor = floor_collection_left[i];
         if (floor.name != last_section_name) {
             last_section = Instantiate(floor, position, Quaternion.identity);
             last_section_name = floor.name;
             generated_floors.Add(last_section);
         }
+        floor_collection_left.RemoveAt(i);
     }
 }
