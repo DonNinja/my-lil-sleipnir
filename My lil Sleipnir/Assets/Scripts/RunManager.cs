@@ -6,72 +6,50 @@ using UnityEngine.SceneManagement;
 public class RunManager : MonoBehaviour
 {
     public static RunManager instance;
-    public Camera main_camera;
-    public List<SpriteRenderer> floors = new List<SpriteRenderer>();
-    public GameObject new_floor;
     public bool game_started;
-    public bool generate_level;
-    public float floor_interval;
-    public float start_time;
 
+    [SerializeField] GameObject last_section;
+    [SerializeField] GameObject player;
+    [SerializeField] List<GameObject> floor_collection;
+    [SerializeField] List<GameObject> floor_collection_left;
+    [SerializeField] List<GameObject> generated_floors;
+    [SerializeField] float IN_CAMERA_DIST;
 
-    SpriteRenderer rm_fl_sr;
-    SpriteRenderer new_fl_sr;
-    float floor_width;
-    float right_side;
-    float init_time;
-
+    string last_section_name;
 
     void Awake() {
         instance = this;
+        floor_collection_left = new List<GameObject>(floor_collection);
+    }
 
-        if (floors.Count > 0)
-            floor_width = floors[0].bounds.size.x / 2;
+    void Start() {
+        generated_floors.Add(last_section);
     }
 
     // Update is called once per frame
     void Update() {
-        rm_fl_sr = null;
-        new_fl_sr = null;
-        int i = 0;
-
-        //if (Time.time - init_time > start_time)
-        //    game_started = true;
-
-        if (generate_level) {
-
-            // Get the right side of the camera
-            float camera_right = main_camera.ScreenToWorldPoint(new Vector3(main_camera.pixelRect.xMax, 0, 0)).x + main_camera.transform.position.x;
-
-            // TODO: Make this dynamic so we don't require the player to stay in x coords 0 (This isn't ultimately required, but would be nice)
-            float camera_left = main_camera.ScreenToWorldPoint(new Vector3(main_camera.pixelRect.xMax - main_camera.pixelRect.xMax, 0, 0)).x + main_camera.transform.position.x;
-
-            foreach (SpriteRenderer fl in floors) {
-                i++;
-
-                right_side = fl.bounds.center.x + floor_width;
-
-                if (right_side < camera_left)
-                    rm_fl_sr = fl;
-
-                if (i == floors.Count && right_side < camera_right) {
-                    Vector3 floor_pos = new Vector3(right_side + floor_width + floor_interval, new_floor.transform.position.y, 0);
-
-                    // Create new floor and get the spriterenderer of that
-                    GameObject fl_child = Instantiate(new_floor, floor_pos, Quaternion.identity);
-
-                    new_fl_sr = fl_child.gameObject.transform.Find("Floor").Find("Floor").GetComponent<SpriteRenderer>();
-                    new_fl_sr.color = Random.ColorHSV();
-                }
-            }
-
-            if (rm_fl_sr) {
-                floors.Remove(rm_fl_sr);
-                Destroy(rm_fl_sr.transform.parent.gameObject);
-            }
-
-            if (new_fl_sr)
-                floors.Add(new_fl_sr);
+        Vector2 end_pos = last_section.transform.Find("End").position;
+        if (Vector2.Distance(player.transform.position, end_pos) < Camera.main.transform.position.x + IN_CAMERA_DIST) {
+            GenerateNewSection(end_pos);
         }
+
+        if (generated_floors[0].gameObject.transform.Find("End").position.x < Camera.main.transform.position.x - IN_CAMERA_DIST) {
+            Destroy(generated_floors[0].gameObject);
+            generated_floors.RemoveAt(0);
+        }
+    }
+
+    void GenerateNewSection(Vector2 position) {
+        if (floor_collection_left.Count == 0) {
+            floor_collection_left = new List<GameObject>(floor_collection);
+        }
+        int i = Random.Range(0, floor_collection_left.Count);
+        GameObject floor = floor_collection_left[i];
+        if (floor.name != last_section_name) {
+            last_section = Instantiate(floor, position, Quaternion.identity);
+            last_section_name = floor.name;
+            generated_floors.Add(last_section);
+        }
+        floor_collection_left.RemoveAt(i);
     }
 }
