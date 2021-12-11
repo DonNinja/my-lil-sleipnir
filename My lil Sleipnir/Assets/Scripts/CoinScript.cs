@@ -13,9 +13,5 @@ public class CoinScript : MonoBehaviour
             GameManager.instance.coin_counter++;
         Destroy(gameObject);
         Destroy(this);
-        //gameObject.SetActive(false);
-        //GetComponent<SpriteRenderer>().gameObject.SetActive(false);
-        //sp.enabled = false;
-        //sp.color = new Color(0, 0, 0, 0);
     }
 }
