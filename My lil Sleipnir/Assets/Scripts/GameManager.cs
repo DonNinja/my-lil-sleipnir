@@ -1,13 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+using UnityEngine.UIElements;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
     public int coin_counter = 0;
     public int food_amount;
+    public bool owns_doublejump;
+    public bool owns_groundpound;
+    public bool owns_neverdirty;
+    public bool owns_alwaysloves;
+    public bool is_active_doublejump;
+    public bool is_active_groundpound;
+    public bool is_active_neverdirty;
+    public bool is_active_alwaysloves;
 
     public Slider hunger_slider;
     public float hunger;
