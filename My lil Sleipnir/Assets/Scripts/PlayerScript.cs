@@ -38,6 +38,10 @@ public class PlayerScript : MonoBehaviour
     void Update() {
         float curr_speed = player_speed / ((min_speed + max_speed) / 2);
         grounded = IsGrounded();
+
+        anim.SetBool("Grounded", grounded);
+        anim.SetFloat("Y_mov", rb.velocity.y);
+
         if (Input.GetKeyDown(jump) && (grounded || second_jump)) {
             // Force still movement so the 2nd jump will be constant
             rb.velocity = Vector2.up * jump_height;
@@ -57,27 +61,27 @@ public class PlayerScript : MonoBehaviour
             }
         }
 
-        if (Input.GetKey(faster)) {
-            if (player_speed < max_speed) {
-                // Increase speed
-                player_speed += speed_add;
-            }
-        }
-        else if (Input.GetKey(slower)) {
-            if (player_speed > min_speed) {
-                // Decrease speed
-                player_speed -= brake_speed;
-            }
-        }
-
         // Start falling down when key is released
         if (!grounded) {
-            anim.speed = curr_speed * 0.2f;
+            anim.speed = 1;
 
             if (!Input.GetKey(jump))
                 rb.velocity += Vector2.up * gravity * rb.mass * Time.deltaTime;
         }
         else {
+            if (Input.GetKey(faster)) {
+                if (player_speed < max_speed) {
+                    // Increase speed
+                    player_speed += speed_add;
+                }
+            }
+            else if (Input.GetKey(slower)) {
+                if (player_speed > min_speed) {
+                    // Decrease speed
+                    player_speed -= brake_speed;
+                }
+            }
+
             anim.speed = curr_speed;
             second_jump = dj_enabled;
         }
