@@ -472,8 +472,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: OK
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: ba1f0ae541936bc45ab7ea00a952c765, type: 2}
+  m_sharedMaterial: {fileID: 6785585814041847894, guid: ba1f0ae541936bc45ab7ea00a952c765, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -497,8 +497,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 16
-  m_fontSizeBase: 16
+  m_fontSize: 12
+  m_fontSizeBase: 12
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -581,8 +581,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 10.269703, y: 0.204183}
-  m_SizeDelta: {x: 381.01865, y: 60.491287}
+  m_AnchoredPosition: {x: 13.9785, y: 0.14619}
+  m_SizeDelta: {x: 408.8332, y: 61.62158}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1082506493
 MonoBehaviour:
@@ -604,12 +604,12 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Hello, Im Odin and I have this little pony that needs your attention. You
-    will have to take it out on runs and get coins so you can buy food for him...PLACEHOLDER
-    TEXT
+  m_text: Sleipnir told me he wants to be the fastest horse in all of Asgardur! I
+    better take care of him by keeping him fed and happy, and help him train by going
+    running.
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: ba1f0ae541936bc45ab7ea00a952c765, type: 2}
+  m_sharedMaterial: {fileID: 6785585814041847894, guid: ba1f0ae541936bc45ab7ea00a952c765, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
