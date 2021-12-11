@@ -16,7 +16,12 @@ https://freesound.org/people/maikguts/sounds/379878/
 https://freesound.org/people/draftcraft/sounds/434336/   
 https://freesound.org/people/StephenSaldanha/sounds/165532/  
 Soundtrack composed by AIVA (Artificial Intelligence Virtual Artist):  
-https://www.aiva.ai/
+https://www.aiva.ai/  
+
+- Fonts:  
+https://fonts.google.com/specimen/Readex+Pro?category=Sans+Serif,Display,Monospace  
+https://www.fontzillion.com/fonts/manfred-klein/runish-quill-mk  
+https://www.fontsupply.com/fonts/F/Frscript.html  
 
 - Visuals:  
 https://laredgames.itch.io/gems-coins-free
