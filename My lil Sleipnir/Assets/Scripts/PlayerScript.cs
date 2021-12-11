@@ -4,45 +4,86 @@ using UnityEngine.SceneManagement;
 public class PlayerScript : MonoBehaviour
 {
     public static PlayerScript instance;
+    public GameObject player;
     public float player_speed;
-    public float max_speed;
-    public float jump_height;
-    public float player_weight;
-    public float jump_weight;
-    public float extra_height;
-    public Rigidbody2D rb;
-    public BoxCollider2D center_collider;
-    public bool dj_enabled;
-    public LayerMask ground;
+    [SerializeField] float min_speed;
+    [SerializeField] float max_speed;
+    [SerializeField] float jump_height;
+    [SerializeField] float forced_down_weight;
+    [SerializeField] float extra_height;
+    [SerializeField] float grounded_offset;
+    [SerializeField] float speed_add;
+    [SerializeField] float brake_speed;
+    [SerializeField] Rigidbody2D rb;
+    [SerializeField] BoxCollider2D center_collider;
+    [SerializeField] bool dj_enabled;
+    [SerializeField] LayerMask ground;
     public AudioSource coin_get_sound;
-    public AudioSource jump_sound;
+    [SerializeField] AudioSource jump_sound;
+    [SerializeField] Animator anim;
 
     bool second_jump;
     float init_time;
+    float gravity;
+    bool grounded;
+
+    KeyCode jump = KeyCode.UpArrow;
+    KeyCode faster = KeyCode.RightArrow;
+    KeyCode slower = KeyCode.LeftArrow;
 
     private void Awake() {
         instance = this;
         init_time = Time.time;
+        gravity = Physics2D.gravity.y * rb.gravityScale;
     }
 
     // Update is called once per frame
     void Update() {
-        if (Input.GetKeyDown(KeyCode.UpArrow) && (IsGrounded() || second_jump)) {
+        grounded = IsGrounded();
+        if (Input.GetKeyDown(jump) && (grounded || second_jump)) {
             // Force still movement so the 2nd jump will be constant
-            rb.gravityScale = jump_weight;
-            rb.velocity = new Vector2(0, 0);
-            rb.AddForce(new Vector2(0, jump_height));
+            rb.velocity = Vector2.up * jump_height;
 
             // Set second jump
-            second_jump = IsGrounded() && dj_enabled;
+            second_jump = grounded && dj_enabled;
 
             jump_sound.Play();
         }
 
+        if (Input.GetKeyDown(KeyCode.DownArrow)) {
+            if (!grounded) {
+                rb.velocity += Vector2.up * gravity * (forced_down_weight - 1) * Time.deltaTime;
+            }
+            else {
+                // Potential ducking thing?
+            }
+        }
+
+        if (Input.GetKey(faster)) {
+            if (player_speed < max_speed) {
+                player_speed += speed_add;
+            }
+        }
+        else if (Input.GetKey(slower)) {
+            if (player_speed > min_speed) {
+                player_speed -= brake_speed;
+            }
+        }
+
         // Start falling down when key is released
-        if (Input.GetKeyUp(KeyCode.UpArrow) && !IsGrounded())
-            if (rb.velocity.y > 0)
-                rb.velocity = new Vector2(0, 0);
+        if (!grounded) {
+            if (anim.speed > 0.2f) {
+                //anim.Stop();
+                anim.speed = 0.2f;
+            }
+
+            if (!Input.GetKey(jump))
+                rb.velocity += Vector2.up * gravity * rb.mass * Time.deltaTime;
+        }
+        else {
+            anim.speed = player_speed / ((min_speed + max_speed) / 2);
+            second_jump = dj_enabled;
+        }
 
         if (rb.position.y < -50) {
 #if UNITY_EDITOR
@@ -57,33 +98,23 @@ public class PlayerScript : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision) {
-        second_jump = dj_enabled;
-        rb.gravityScale = player_weight;
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision) {
-        Rigidbody2D other = collision.attachedRigidbody;
-        if (other) {
-            coin_get_sound.Play();
-            Destroy(other.gameObject);
-            Destroy(other);
-            GameManager.instance.coin_counter++;
-        }
-    }
-
     private bool IsGrounded() {
-        RaycastHit2D raycast_hit = Physics2D.Raycast(center_collider.bounds.center, Vector2.down, center_collider.bounds.extents.y + extra_height, ground);
+        Vector2 ray_1 = center_collider.bounds.center;
+        ray_1.x -= (center_collider.bounds.extents.x + grounded_offset);
+        Vector2 ray_2 = center_collider.bounds.center;
+        ray_2.x += center_collider.bounds.extents.x;
+        float collider_offset = center_collider.bounds.extents.y + extra_height;
 
-        // Debugging
-        Color ray_colour;
-        if (raycast_hit.collider != null)
-            ray_colour = Color.green;
-        else
-            ray_colour = Color.red;
+        RaycastHit2D raycast_hit_1 = Physics2D.Raycast(ray_1, Vector2.down, collider_offset, ground);
+        RaycastHit2D raycast_hit_2 = Physics2D.Raycast(ray_2, Vector2.down, collider_offset, ground);
 
-        Debug.DrawRay(center_collider.bounds.center, Vector2.down * (center_collider.bounds.extents.y + extra_height), ray_colour);
+        bool on_ground = raycast_hit_1.collider != null || raycast_hit_2.collider != null;
 
-        return raycast_hit.collider != null;
+        // This creates a line for debugging
+        Color ray_colour = on_ground ? Color.green : Color.red;
+        Debug.DrawRay(ray_1, Vector2.down * collider_offset, ray_colour);
+        Debug.DrawRay(ray_2, Vector2.down * collider_offset, ray_colour);
+
+        return on_ground;
     }
 }
