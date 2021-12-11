@@ -15,6 +15,8 @@ https://freesound.org/people/jnr%20hacksaw/sounds/11221/
 https://freesound.org/people/maikguts/sounds/379878/   
 https://freesound.org/people/draftcraft/sounds/434336/   
 https://freesound.org/people/StephenSaldanha/sounds/165532/  
+https://freesound.org/people/Harrisando/sounds/466202/  
+https://freesound.org/people/Jofae/sounds/367852/  
 Soundtrack composed by AIVA (Artificial Intelligence Virtual Artist):  
 https://www.aiva.ai/  
 
