@@ -28,6 +28,12 @@ public class RunManager : MonoBehaviour
 
     // Update is called once per frame
     void Update() {
+        if (Input.GetKeyDown(KeyCode.P))
+            if (game_started)
+                PauseMenu.instance.Pause();
+            else
+                PauseMenu.instance.Resume();
+
         if (floor_collection_left.Count == 0) {
             floor_collection_left = new List<GameObject>(floor_collection);
         }

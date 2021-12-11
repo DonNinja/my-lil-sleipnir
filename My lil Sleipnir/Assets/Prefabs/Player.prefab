@@ -985,9 +985,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: d4596acde6d43c34daca90210861e07f, type: 3}
+  m_audioClip: {fileID: 8300000, guid: a97238dab5f482b4788c582e9782792e, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.25
+  m_Volume: 1
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -1086,8 +1086,7 @@ MonoBehaviour:
   game_started: 1
   last_section: {fileID: 0}
   player: {fileID: 734609131933961436}
-  floor_collection:
-  - {fileID: 160480832354859720, guid: f9989d013bd78dc40830d7ecf4e740d5, type: 3}
+  floor_collection: []
   floor_collection_left: []
   generated_floors: []
   IN_CAMERA_DIST: 55

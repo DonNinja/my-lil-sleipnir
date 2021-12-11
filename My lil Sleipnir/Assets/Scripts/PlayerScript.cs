@@ -19,7 +19,6 @@ public class PlayerScript : MonoBehaviour
     [SerializeField] float grounded_offset;
     [SerializeField] float speed_add;
     [SerializeField] float brake_speed;
-    [SerializeField] bool dj_enabled;
 
     bool second_jump;
     float gravity;
@@ -47,12 +46,12 @@ public class PlayerScript : MonoBehaviour
             rb.velocity = Vector2.up * jump_height;
 
             // Set second jump
-            second_jump = grounded && dj_enabled;
+            second_jump = grounded && GameManager.instance.is_active_doublejump;
 
             jump_sound.Play();
         }
 
-        if (Input.GetKeyDown(KeyCode.DownArrow)) {
+        if (Input.GetKeyDown(KeyCode.DownArrow) && GameManager.instance.is_active_groundpound) {
             if (!grounded) {
                 rb.velocity += Vector2.up * gravity * (forced_down_weight - 1) * Time.deltaTime;
             }
@@ -83,7 +82,7 @@ public class PlayerScript : MonoBehaviour
             }
 
             anim.speed = curr_speed;
-            second_jump = dj_enabled;
+            second_jump = GameManager.instance.is_active_doublejump;
         }
 
         if (rb.position.y < -50) {
