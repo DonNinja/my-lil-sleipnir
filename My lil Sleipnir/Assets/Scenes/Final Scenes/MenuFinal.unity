@@ -5895,11 +5895,11 @@ MonoBehaviour:
   is_active_neverdirty: 0
   is_active_alwaysloves: 0
   hunger_slider: {fileID: 1430635091}
-  hunger: 0
+  hunger: 5
   hygiene_slider: {fileID: 1399939808}
-  hygiene: 0
+  hygiene: 5
   comfort_slider: {fileID: 2041880974}
-  comfort: 0
+  comfort: 5
   in_stables: 0
 --- !u!4 &872550159
 Transform:
@@ -8953,7 +8953,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 10
   m_WholeNumbers: 0
-  m_Value: 0
+  m_Value: 5
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -9147,7 +9147,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 10
   m_WholeNumbers: 0
-  m_Value: 0
+  m_Value: 5
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -13302,7 +13302,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 10
   m_WholeNumbers: 0
-  m_Value: 0
+  m_Value: 5
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
