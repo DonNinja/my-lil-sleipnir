@@ -505,14 +505,13 @@ MonoBehaviour:
   jump_sound: {fileID: 734609131933961434}
   anim: {fileID: 237271622}
   min_speed: 20
-  max_speed: 45
+  init_max_speed: 20
   jump_height: 15
   forced_down_weight: 150
   extra_height: 0.5
   grounded_offset: 0.5
   speed_add: 0.25
   brake_speed: 0.5
-  dj_enabled: 1
 --- !u!82 &734609131933961434
 AudioSource:
   m_ObjectHideFlags: 0

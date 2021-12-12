@@ -12,7 +12,7 @@ public class PlayerScript : MonoBehaviour
     [SerializeField] AudioSource jump_sound;
     [SerializeField] Animator anim;
     [SerializeField] float min_speed;
-    [SerializeField] float max_speed;
+    [SerializeField] float init_max_speed;
     [SerializeField] float jump_height;
     [SerializeField] float forced_down_weight;
     [SerializeField] float extra_height;
@@ -23,6 +23,11 @@ public class PlayerScript : MonoBehaviour
     bool second_jump;
     float gravity;
     bool grounded;
+    float max_speed;
+
+    float hunger_weight = .75f;
+    float hygiene_weight = .05f;
+    float comfort_weight = .20f;
 
     KeyCode jump = KeyCode.UpArrow;
     KeyCode faster = KeyCode.RightArrow;
@@ -31,6 +36,7 @@ public class PlayerScript : MonoBehaviour
     private void Awake() {
         instance = this;
         gravity = Physics2D.gravity.y * rb.gravityScale;
+        max_speed = init_max_speed + (GameManager.instance.hunger * hunger_weight + GameManager.instance.hygiene * hygiene_weight + GameManager.instance.comfort * comfort_weight);
     }
 
     // Update is called once per frame
@@ -51,14 +57,9 @@ public class PlayerScript : MonoBehaviour
             jump_sound.Play();
         }
 
-        if (Input.GetKeyDown(KeyCode.DownArrow) && GameManager.instance.is_active_groundpound) {
-            if (!grounded) {
+        if (Input.GetKeyDown(KeyCode.DownArrow) && GameManager.instance.is_active_groundpound)
+            if (!grounded)
                 rb.velocity += Vector2.up * gravity * (forced_down_weight - 1) * Time.deltaTime;
-            }
-            else {
-                // Potential ducking thing?
-            }
-        }
 
         // Start falling down when key is released
         if (!grounded) {
