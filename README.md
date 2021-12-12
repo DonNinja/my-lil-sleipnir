@@ -26,4 +26,5 @@ https://www.fontzillion.com/fonts/manfred-klein/runish-quill-mk
 https://www.fontsupply.com/fonts/F/Frscript.html  
 
 - Visuals:  
-https://laredgames.itch.io/gems-coins-free
+https://laredgames.itch.io/gems-coins-free  
+http://www.graphic-buffet.com/products-page/free-spikes-and-blades/
