@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
     public int coin_counter = 0;
     public int food_amount = 0;
+    public int score = 0;
     public bool owns_doublejump;
     public bool owns_groundpound;
     public bool owns_neverdirty;
@@ -27,7 +28,8 @@ public class GameManager : MonoBehaviour
 
     public bool in_stables;
 
-    private void Awake() {
+    private void Awake()
+    {
         DontDestroyOnLoad(gameObject);
 
         if (!instance)
@@ -40,7 +42,8 @@ public class GameManager : MonoBehaviour
         comfort = comfort_slider.value;
     }
 
-    public void EndGame() {
+    public void EndGame()
+    {
         hunger -= 2;
         hygiene -= 1;
         comfort -= 1;
