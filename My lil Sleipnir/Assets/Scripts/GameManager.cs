@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UIElements;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -27,15 +27,15 @@ public class GameManager : MonoBehaviour
     public bool in_stables;
 
     private void Awake() {
-        hunger = hunger_slider.value;
-        hygiene = hygiene_slider.value;
-        comfort = comfort_slider.value;
+        DontDestroyOnLoad(gameObject);
 
         if (!instance)
             instance = this;
         else
             Destroy(gameObject);
 
-        DontDestroyOnLoad(gameObject);
+        hunger = hunger_slider.value;
+        hygiene = hygiene_slider.value;
+        comfort = comfort_slider.value;
     }
 }

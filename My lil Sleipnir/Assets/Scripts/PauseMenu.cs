@@ -16,7 +16,6 @@ public class PauseMenu : MonoBehaviour
     }
 
     public void Resume() {
-        Debug.Log("shouldberesumedc");
         pauseMenuUI.SetActive(false);
         RunManager.instance.game_started = true;
         Time.timeScale = 1f;
