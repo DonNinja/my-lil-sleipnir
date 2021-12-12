@@ -16,6 +16,8 @@ public class BarFill : MonoBehaviour
     int comfort_count = 0;
 
     private void Awake() {
+        hygiene_count = 0;
+        comfort_count = 0;
         slider = gameObject.GetComponent<Slider>();
 
         switch (type) {
@@ -52,17 +54,25 @@ public class BarFill : MonoBehaviour
                     GameManager.instance.hygiene = targetProgress;
                     hygiene_count++;
                 }
+                else {
+                    targetProgress -= newProgress;
+                }
                 break;
             case 2:
                 if (comfort_count < 2) {
                     GameManager.instance.comfort = targetProgress;
                     comfort_count++;
                 }
+                else {
+                    targetProgress -= newProgress;
+                }
                 break;
             default:
                 Debug.LogError("WTF");
                 break;
         }
+        Debug.Log(hygiene_count);
+        Debug.Log(comfort_count);
     }
     public void ResetProgress() {
         slider.value = 0;
