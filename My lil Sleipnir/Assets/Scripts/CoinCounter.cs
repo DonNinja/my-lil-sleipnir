@@ -8,6 +8,7 @@ public class CoinCounter : MonoBehaviour
 
     // Update is called once per frame
     void Update() {
-        coin_label.text = GameManager.instance.coin_counter.ToString();
+        if (GameManager.instance)
+            coin_label.text = GameManager.instance.coin_counter.ToString();
     }
 }
