@@ -286,7 +286,7 @@ PrefabInstance:
     - target: {fileID: 734609133017568355, guid: 9f76ac80fc799e24096fbd3ef497c911, type: 3}
       propertyPath: floor_collection.Array.data[0]
       value: 
-      objectReference: {fileID: 5189928032728943943, guid: d564c4adcae3ed8459f851d6d8e6e341, type: 3}
+      objectReference: {fileID: 229518520622124531, guid: f823a8bf3798c8342b7f5c75fc8a6bd0, type: 3}
     - target: {fileID: 734609133017568355, guid: 9f76ac80fc799e24096fbd3ef497c911, type: 3}
       propertyPath: floor_collection.Array.data[1]
       value: 
