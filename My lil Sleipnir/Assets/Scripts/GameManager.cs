@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
     public int coin_counter = 0;
-    public int food_amount;
+    public int food_amount = 0;
     public bool owns_doublejump;
     public bool owns_groundpound;
     public bool owns_neverdirty;
