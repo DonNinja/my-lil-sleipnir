@@ -8,7 +8,8 @@ public class CollisionScript : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision) {
         // TODO: Crash horse
-        UnityEditor.EditorApplication.isPlaying = false;
+        //UnityEditor.EditorApplication.isPlaying = false;
+        UnityEditor.EditorApplication.isPaused = true;
         //horse.GetComponent<Collider2D>().enabled = false;
         //GetComponent<Collider2D>().enabled = false;
         //Rigidbody2D horse_rigid = horse.GetComponent<Rigidbody2D>();
