@@ -55,13 +55,12 @@ public class PlayerScript : MonoBehaviour
         anim.SetFloat("Y_mov", rb.velocity.y);
 
         if (Input.GetKeyDown(jump) && (grounded || second_jump)) {
+            jump_sound.Play();
             // Force still movement so the 2nd jump will be constant
             rb.velocity = Vector2.up * jump_height;
 
             // Set second jump
             second_jump = grounded && GameManager.instance.is_active_doublejump;
-
-            jump_sound.Play();
         }
 
         if (Input.GetKeyDown(KeyCode.DownArrow) && GameManager.instance.is_active_groundpound)
