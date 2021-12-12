@@ -11,7 +11,7 @@ public class PlayerScript : MonoBehaviour
     public AudioSource coin_get_sound;
     [SerializeField] AudioSource jump_sound;
     [SerializeField] Animator anim;
-    [SerializeField] float min_speed;
+    public float min_speed;
     [SerializeField] float init_max_speed;
     [SerializeField] float jump_height;
     [SerializeField] float forced_down_weight;

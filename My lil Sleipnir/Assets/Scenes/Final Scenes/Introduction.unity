@@ -680,9 +680,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Sleipnir told me he wants to be the fastest horse in all of Asgardur! I
-    better take care of him by keeping him fed and happy, and help him train by going
-    running.
+  m_text: "I am \xD3\xF0in the All-Father. Sleipnir, my eight-legged horse, yearns
+    to be the fastest horse in all of \xC1sgar\xF0.\r\nYou must help him achieve
+    his dreams. He will need food, love, and much training. Do this and earn your
+    place in Valh\xF6ll."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ba1f0ae541936bc45ab7ea00a952c765, type: 2}
   m_sharedMaterial: {fileID: 6785585814041847894, guid: ba1f0ae541936bc45ab7ea00a952c765, type: 2}
@@ -709,7 +710,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 56.45
+  m_fontSize: 48.75
   m_fontSizeBase: 12
   m_fontWeight: 400
   m_enableAutoSizing: 1

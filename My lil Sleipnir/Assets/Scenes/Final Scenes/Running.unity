@@ -209,7 +209,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 734609131933961438, guid: 9f76ac80fc799e24096fbd3ef497c911, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 734609131933961438, guid: 9f76ac80fc799e24096fbd3ef497c911, type: 3}
       propertyPath: m_LocalPosition.x
@@ -286,7 +286,7 @@ PrefabInstance:
     - target: {fileID: 734609133017568355, guid: 9f76ac80fc799e24096fbd3ef497c911, type: 3}
       propertyPath: floor_collection.Array.data[0]
       value: 
-      objectReference: {fileID: 229518520622124531, guid: f823a8bf3798c8342b7f5c75fc8a6bd0, type: 3}
+      objectReference: {fileID: 1280638602297109117, guid: df9c7b383a069d745948ae6c7e16c3a7, type: 3}
     - target: {fileID: 734609133017568355, guid: 9f76ac80fc799e24096fbd3ef497c911, type: 3}
       propertyPath: floor_collection.Array.data[1]
       value: 
@@ -627,6 +627,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6592878154920573679, guid: 9f76ac80fc799e24096fbd3ef497c911, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -459.07007
+      objectReference: {fileID: 0}
     - target: {fileID: 8401735298907057889, guid: 9f76ac80fc799e24096fbd3ef497c911, type: 3}
       propertyPath: m_LocalRotation.w
       value: 0.9598025
@@ -678,7 +682,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6032834635444982218, guid: 91c92cc0b9b61b0458d571685eaf6423, type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6032834635444982218, guid: 91c92cc0b9b61b0458d571685eaf6423, type: 3}
       propertyPath: m_LocalPosition.x
@@ -747,7 +751,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1160647652
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -762,6 +766,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   coin_counter: 10
   food_amount: 0
+  score: 0
   owns_doublejump: 1
   owns_groundpound: 1
   owns_neverdirty: 1
@@ -771,11 +776,11 @@ MonoBehaviour:
   is_active_neverdirty: 0
   is_active_alwaysloves: 0
   hunger_slider: {fileID: 0}
-  hunger: 0
+  hunger: 10
   hygiene_slider: {fileID: 0}
-  hygiene: 0
+  hygiene: 10
   comfort_slider: {fileID: 0}
-  comfort: 0
+  comfort: 10
   in_stables: 0
 --- !u!4 &1160647653
 Transform:
@@ -789,7 +794,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1412554134
 PrefabInstance:
@@ -808,7 +813,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1337805574881079457, guid: 90a253a7c5301184e9f5bcf4c317b417, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1337805574881079457, guid: 90a253a7c5301184e9f5bcf4c317b417, type: 3}
       propertyPath: m_LocalPosition.x
@@ -912,5 +917,5 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
