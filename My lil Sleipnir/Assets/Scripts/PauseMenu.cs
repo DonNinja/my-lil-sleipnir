@@ -31,6 +31,6 @@ public class PauseMenu : MonoBehaviour
     }
     public void QuitToStable() {
         Time.timeScale = 1f;
-        SceneManager.LoadScene("Menu");
+        GameManager.instance.EndGame();
     }
 }

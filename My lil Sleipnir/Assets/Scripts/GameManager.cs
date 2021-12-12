@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -37,5 +38,13 @@ public class GameManager : MonoBehaviour
         hunger = hunger_slider.value;
         hygiene = hygiene_slider.value;
         comfort = comfort_slider.value;
+    }
+
+    public void EndGame() {
+        hunger -= 2;
+        hygiene -= 1;
+        comfort -= 1;
+
+        SceneManager.LoadSceneAsync("Menu");
     }
 }
