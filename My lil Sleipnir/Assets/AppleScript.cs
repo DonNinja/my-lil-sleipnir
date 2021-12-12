@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class AppleScript : MonoBehaviour
 {
-    private void OnCollisionEnter2D(Collision2D collision) {
+    private void OnTriggerEnter2D(Collider2D collision) {
         if (GameManager.instance)
             GameManager.instance.food_amount++;
         Destroy(gameObject);

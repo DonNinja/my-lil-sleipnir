@@ -505,7 +505,7 @@ MonoBehaviour:
   coin_get_sound: {fileID: 734609131852069149}
   jump_sound: {fileID: 734609131933961434}
   anim: {fileID: 237271622}
-  min_speed: 20
+  min_speed: 17.5
   init_max_speed: 20
   jump_height: 15
   forced_down_weight: 150
@@ -1386,7 +1386,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4a44e7a3e32dd440b866ff2e8972b6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  apple_label: {fileID: 0}
+  apple_label: {fileID: 3491486733580490053}
 --- !u!1 &5659201006392719442
 GameObject:
   m_ObjectHideFlags: 0
