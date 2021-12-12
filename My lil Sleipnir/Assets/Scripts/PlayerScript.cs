@@ -19,6 +19,7 @@ public class PlayerScript : MonoBehaviour
     [SerializeField] float grounded_offset;
     [SerializeField] float speed_add;
     [SerializeField] float brake_speed;
+    [SerializeField] float test_val;
 
     bool second_jump;
     float gravity;
@@ -36,7 +37,13 @@ public class PlayerScript : MonoBehaviour
     private void Awake() {
         instance = this;
         gravity = Physics2D.gravity.y * rb.gravityScale;
-        max_speed = init_max_speed + (GameManager.instance.hunger * hunger_weight + GameManager.instance.hygiene * hygiene_weight + GameManager.instance.comfort * comfort_weight);
+        if (GameManager.instance) {
+            max_speed = init_max_speed + (GameManager.instance.hunger * hunger_weight + GameManager.instance.hygiene * hygiene_weight + GameManager.instance.comfort * comfort_weight);
+        }
+        else {
+            max_speed = init_max_speed + (test_val * hunger_weight + test_val * hygiene_weight + test_val * comfort_weight);
+        }
+        player_speed = (min_speed + max_speed) / 2;
     }
 
     // Update is called once per frame
@@ -88,7 +95,8 @@ public class PlayerScript : MonoBehaviour
 
         if (rb.position.y < -50) {
 #if UNITY_EDITOR
-            UnityEditor.EditorApplication.isPlaying = false;
+            //UnityEditor.EditorApplication.isPlaying = false;
+            UnityEditor.EditorApplication.isPaused = true;
 #endif
 
             GameManager.instance.EndGame();
