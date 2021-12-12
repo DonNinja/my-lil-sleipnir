@@ -50,8 +50,10 @@ public class GameManager : MonoBehaviour
     public void EndGame()
     {
         hunger -= 2;
-        hygiene -= 1;
-        comfort -= 1;
+        if (!is_active_neverdirty)
+            hygiene -= 1;
+        if (!is_active_alwaysloves)
+            comfort -= 1;
 
         SceneManager.LoadSceneAsync("MenuFinal");
     }
