@@ -11,10 +11,10 @@ public class UpgradeSystem : MonoBehaviour
     public GameObject activatedToggle;
     public GameObject deactivatedToggle;
     //public GameObject powerupActivated;
-    private int doublejump_price = 100;
-    private int groundpound_price = 100;
-    private int neverdirty_price = 100;
-    private int alwaysloves_price = 100;
+    private int doublejump_price = 50;
+    private int groundpound_price = 50;
+    private int neverdirty_price = 50;
+    private int alwaysloves_price = 50;
 
     public int what_powerup;
 

@@ -12,9 +12,12 @@ EditorBuildSettings:
     path: Assets/Scenes/Final Scenes/Introduction.unity
     guid: 3979fcccafbc8f24d9242b963d498fd5
   - enabled: 1
-    path: Assets/Scenes/Menu.unity
-    guid: 2b084364eb79cb342827f7ec9e19e838
+    path: Assets/Scenes/Final Scenes/Tutorial.unity
+    guid: 6e7901bbfab9f064aaa4959c73226ff4
   - enabled: 1
-    path: Assets/Scenes/Running - old.unity
-    guid: 2834513ce18aabd4086243b2ae9c36d0
+    path: Assets/Scenes/Final Scenes/MenuFinal.unity
+    guid: 90b5149c95709c643acd34237adfbd96
+  - enabled: 1
+    path: Assets/Scenes/Final Scenes/Running.unity
+    guid: 75428afa8c67fd94199627e3d9e5fb6d
   m_configObjects: {}

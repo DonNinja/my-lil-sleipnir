@@ -9,6 +9,6 @@ public class IntroductionScript : MonoBehaviour
 
     public void changeToStables()
     {
-        SceneManager.LoadSceneAsync("Menu");
+        SceneManager.LoadSceneAsync("Tutorial");
     }
 }

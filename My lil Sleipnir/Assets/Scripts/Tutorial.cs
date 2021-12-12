@@ -22,6 +22,6 @@ public class Tutorial : MonoBehaviour
     }
     public void func_button3()
     {
-        SceneManager.LoadSceneAsync("Menu");
+        SceneManager.LoadSceneAsync("MenuFinal");
     }
 }
