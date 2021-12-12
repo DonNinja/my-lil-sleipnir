@@ -45,6 +45,6 @@ public class GameManager : MonoBehaviour
         hygiene -= 1;
         comfort -= 1;
 
-        SceneManager.LoadSceneAsync("Menu");
+        SceneManager.LoadSceneAsync("MenuFinal");
     }
 }
